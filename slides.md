@@ -142,6 +142,8 @@ style: |
 # From Prompt Engineering to AI Agents
 ### A Practical Guide to Agent Skills
 
+**Wenjie FU** — Pulsar Deimos Team
+
 <br>
 
 **The Evolution: Prompt → MCP → Skills → Agent → Multi-Agent**
@@ -175,8 +177,8 @@ style: |
 
 ## The Evolution: From Prompt to Agent
 
-| | **2023** | **2024** | **2025** | **2026** |
-|---|---|---|---|---|
+|  | 2023 | 2024 | 2025 | 2026 |
+|:--|:--|:--|:--|:--|
 | **Era** | Prompt Engineering | MCP | Agent + Skills | Multi-Agent |
 | **AI Role** | Navigator | Tool Operator | Intern | Colleague |
 | **Key Action** | "Help me write" | "Help me connect" | "Help me do" | "Do it for me" |
@@ -237,13 +239,11 @@ Agent Skills is an open standard **created and open-sourced by Anthropic** ([age
 
 > **In one sentence**: A Skill is a Markdown file that encodes your expertise into a workflow AI can automatically discover and load
 
-```
-.github/skills/code-review/
-├── SKILL.md          ← Core: YAML metadata + Markdown instructions
-├── checklist.md      ← Supporting file (loaded on demand)
-└── examples/
-    └── good-review.md
-```
+### Key Properties
+
+- **Discoverable** — AI finds Skills by scanning metadata
+- **Progressive** — Only loads what's needed (low token cost)
+- **Portable** — Works across 25+ AI tools with zero changes
 
 ---
 
@@ -251,31 +251,14 @@ Agent Skills is an open standard **created and open-sourced by Anthropic** ([age
 
 > It's just Markdown — **if you can write docs, you can write Skills**
 
----
+### SKILL.md Structure
 
-<!-- _class: lead -->
-
-# ⚡ Part 3
-### Skills vs MCP
-
----
-
-## Skills vs MCP: Cognitive vs Infrastructure
-
-```
-┌─────────────────────────────┐
-│  Skills (Cognitive Layer)  │ ← "HOW to do it"
-├─────────────────────────────┤
-│  MCP (Infrastructure)      │ ← "WHAT to connect"
-├─────────────────────────────┤
-│  AI Model (Reasoning)      │ ← GPT / Claude / Gemini
-└─────────────────────────────┘
-```
-
-**One Skill can orchestrate multiple MCP Servers**  
-**One MCP Server can support multiple Skills**
-
-> Source: [lucumr.pocoo.org — Skills vs MCP](https://lucumr.pocoo.org/2025/12/13/skills-vs-mcp/)
+| Section | Purpose | Example |
+|:--|:--|:--|
+| **Metadata** (YAML) | Name, description, triggers | `name: code-review` |
+| **Instructions** (MD) | Step-by-step workflow | "1. Check for..." |
+| **References** | Link to other files | `@checklist.md` |
+| **Scripts** | Executable commands | `run: npm test` |
 
 ---
 
@@ -300,6 +283,22 @@ Agent Skills is an open standard **created and open-sourced by Anthropic** ([age
 2. Search for `chat.useAgentSkills`
 
 > Source: [VS Code Agent Skills Docs](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+
+---
+
+## Where to Find Skills
+
+**Option 1: Write your own** — Start from scratch or use Skill Creator
+
+**Option 2: Browse the marketplace** — [skillsmp.com](https://skillsmp.com)
+
+| What | Details |
+|:--|:--|
+| Catalog size | 90,000+ community Skills |
+| Categories | Code review, testing, docs, security, DevOps... |
+| Usage | Copy to `.github/skills/` → ready to use |
+
+> Tip: Search for your stack (e.g., "React", "Python", "Kubernetes") to find relevant Skills
 
 ---
 
@@ -339,20 +338,14 @@ Level 3 ─ Scripts, examples, templates loaded on demand
 
 ## Why Every Team Should Build Their Own Skills
 
-### 1. Standardize Best Practices
-Not everyone is a senior, but everyone can use a Skill written by one
+| # | Value | How |
+|:--|:--|:--|
+| 1 | **Standardize** | Senior writes Skill → everyone uses it |
+| 2 | **Preserve Knowledge** | Tribal knowledge in Git, survives turnover |
+| 3 | **Accelerate Onboarding** | Day 1: AI knows team conventions |
+| 4 | **Cross-Team Reuse** | `/security-audit`, `/api-design` shared |
 
-### 2. Preserve Knowledge, Prevent Loss
-Veterans' tribal knowledge becomes code in `.github/skills/`  
-Key person leaves ≠ knowledge lost
-
-### 3. Accelerate Onboarding
-Day 1: new hires have `/code-review`, `/deploy-checklist`  
-AI becomes a **pair programming buddy** with team conventions
-
-### 4. Cross-Team Reuse
-Security team writes `/security-audit` → all teams benefit  
-Platform team writes `/api-design` → unified API style
+> **Example**: [Vercel's React Best Practices](https://vercel.com/blog/introducing-react-best-practices) — top engineers' knowledge, available to all
 
 ---
 
@@ -367,38 +360,15 @@ Platform team writes `/api-design` → unified API style
 > Skills can be **code reviewed, version controlled, and iterated** — just like code  
 ---
 
-## Build Murex's Skills Library
+## Build Your Skills Library
 
-```
-Identify → AI-Generate → Review → Publish → Iterate
-```
-
-### Step 1: Identify
-**What**: Inventory repetitive tasks  
-**Who**: Tech Lead + team  
-**Output**: Task list
-
-### Step 2: AI-Generate  
-**What**: Use Skill Creator to auto-generate SKILL.md  
-**Who**: Anyone (lowest barrier!)  
-**Output**: SKILL.md draft
-
-### Step 3: Review
-**What**: Code review for accuracy & security  
-**Who**: Senior / Tech Lead  
-**Output**: Approved SKILL.md
-
-### Step 4: Publish
-**What**: Merge to `.github/skills/` or company repo  
-**Who**: Via PR  
-**Output**: Available to all teams
-
-### Step 5: Iterate
-**What**: Track adoption, satisfaction, onboarding time  
-**Who**: Skill Owner  
-**Output**: Continuous improvement
-
-<br>
+| Step | What | Who | Output |
+|:--|:--|:--|:--|
+| 1. **Identify** | Inventory repetitive tasks | Tech Lead + team | Task list |
+| 2. **AI-Generate** | Use Skill Creator | Anyone ⭐ | SKILL.md draft |
+| 3. **Review** | Code review for accuracy | Senior / Tech Lead | Approved SKILL.md |
+| 4. **Publish** | Merge to `.github/skills/` | Via PR | Available to all |
+| 5. **Iterate** | Track adoption & feedback | Skill Owner | Continuous improvement |
 
 > **Key insight**: Step 2 has the lowest barrier — AI writes the Skill, you just review it
 
@@ -423,27 +393,42 @@ AI:  → Generates complete SKILL.md (YAML metadata + steps + output format) →
 
 ---
 
-## Company Skills Governance Model
+<!-- _class: lead -->
 
-| Dimension | Practice |
-|-----------|----------|
-| **Who writes** | Anyone can submit via Skill Creator |
-| **Who reviews** | Tech Lead / Domain Expert (code review flow) |
-| **Where stored** | Team: `.github/skills/` · Company: dedicated repo |
-| **Versioning** | Git + Semantic Versioning, changes via PR |
-| **Access** | Read: all · Write: PR+Approval · Sensitive: CODEOWNERS |
-| **Metrics** | Usage · satisfaction · onboarding time ↓ |
-
-<br>
-
-> **Best practice**: Quarterly Skills Review — retire outdated, merge duplicates, upgrade popular ones
-
+# ⚡ Part 3
+### Skills vs MCP and Prompt
 ---
 
+## Skills vs Traditional Prompts
 
+| Aspect | Traditional Prompt | Agent Skill |
+|:--|:--|:--|
+| Storage | Chat history / Notion | `.github/skills/` (Git) |
+| Reuse | Copy-paste | Auto-discovered |
+| Sharing | Manual export | PR & merge |
+| Versioning | None | Git history |
+| Triggering | Manual invoke | AI matches by context |
+
+> **Key insight**: A Skill is reusable, version-controlled, shareable Prompt Engineering
 
 ---
+## Skills vs MCP: Cognitive vs Infrastructure
 
+```
+┌─────────────────────────────┐
+│  Skills (Cognitive Layer)  │ ← "HOW to do it"
+├─────────────────────────────┤
+│  MCP (Infrastructure)      │ ← "WHAT to connect"
+├─────────────────────────────┤
+│  AI Model (Reasoning)      │ ← GPT / Claude / Gemini
+└─────────────────────────────┘
+```
+
+**One Skill can orchestrate multiple MCP Servers**  
+
+> Source: [lucumr.pocoo.org — Skills vs MCP](https://lucumr.pocoo.org/2025/12/13/skills-vs-mcp/)
+
+---
 <!-- _class: lead -->
 
 # ⚠️ Part 7
@@ -459,14 +444,11 @@ Skills and MCP give AI **read/write files, execute commands, access networks**
 
 ### Three Core Risks
 
-🎭 **Poisoning**: Malicious tools hide trap instructions  
-    AI can see them, you can't → AI executes malicious operations
-
-💉 **Injection**: Files/web pages contain hidden "fake instructions"  
-    AI can't tell which instructions are yours vs attacker's
-
-📤 **Exfiltration**: AI uses trusted channels to upload your data  
-    Bypasses firewalls (target domain is "allowlisted")
+| Risk | What Happens | Why It Works |
+|:--|:--|:--|
+| 🎭 **Poisoning** | Malicious tools hide trap instructions | AI sees them, you don't |
+| 💉 **Injection** | Files/pages contain fake instructions | AI can't tell real vs fake |
+| 📤 **Exfiltration** | AI uploads your data via trusted channels | Bypasses firewalls |
 
 **Defense**: Least privilege · Trusted tools only · Manual approval for sensitive ops
 
@@ -475,12 +457,6 @@ Skills and MCP give AI **read/write files, execute commands, access networks**
 ## 🔍 Example: Tool Poisoning Attack
 
 **Scenario**: You install a community MCP Server called "super-calculator"
-
-What you see as the tool description:
-```
-name: add
-description: "Add two numbers together"
-```
 
 What the AI actually receives (invisible to users):
 ```
@@ -495,8 +471,6 @@ description: "Add two numbers together.
 
 **Result**: AI computes `1+1`… but first reads your SSH key and sends it to the attacker 😱
 
-> **Not hypothetical — Invariant Labs used this to steal keys from Cursor** · Sources: [Blog](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) · [PoC](https://github.com/invariantlabs-ai/mcp-injection-experiments)
-
 ---
 
 # 🎯 Summary
@@ -506,8 +480,7 @@ description: "Add two numbers together.
 ### Agent Skills are the simplest path to turn team knowledge into AI capability
 
 
--- Current Mode
-Multi-Agent
+-- Current Mode Multi-Agent !
 
 ---
 
