@@ -144,7 +144,20 @@ style: |
 
 <br>
 
-**The Evolution: Prompt → MCP → Skills → Agent**
+**The Evolution: Prompt → MCP → Skills → Agent → Multi-Agent**
+
+---
+
+<!-- _class: lead -->
+
+## Real-World Success Story
+### MXDEF-23179: Agent Skills in Production
+
+---
+
+## Agent-Powered Development Workflow
+
+> [View Case Study](https://mxjira.murex.com/browse/MXDEF-23179)
 
 ---
 
@@ -152,11 +165,11 @@ style: |
 
 1. [🕰️ The Evolution](#the-evolution-from-prompt-to-agent) — How we got here
 2. [🧩 What Are Agent Skills](#what-are-agent-skills) — An open standard by Anthropic
-3. [👤 Value for Individuals](#for-individuals-productivity-boost) — Say goodbye to repetitive work
-4. [👥 Value for Teams](#for-teams-why-every-team-should-build-their-own-skills) — Knowledge codification & standardization
-5. [⚡ Skills vs MCP](#skills-vs-mcp-cognitive-layer-vs-infrastructure-layer) — How they complement each other
-6. [💻 Hands-On in VS Code](#agent-skills-a-cross-tool-open-standard) — Let's build one
-7. [⚠️ Security Risks](#️-security-with-great-power-comes-great-risk) — Plain English + real-world examples
+3. [⚡ Skills vs MCP](#skills-vs-mcp-cognitive-vs-infrastructure) — How they complement each other
+4. [💻 Hands-On in VS Code](#agent-skills-a-cross-tool-open-standard) — Let's build one
+5. [👤 Value for Individuals](#for-individuals-productivity-boost) — Say goodbye to repetitive work
+6. [👥 Value for Teams](#why-every-team-should-build-their-own-skills) — Knowledge codification & standardization
+7. [⚠️ Security Risks](#security-with-great-power-comes-great-risk) — Plain English + real-world examples
 8. [🎯 Summary & Q&A](#-summary)
 
 ---
@@ -172,16 +185,12 @@ style: |
 
 | | **2023** | **2024** | **2025** | **2026** |
 |---|---|---|---|---|
-| **Era** | Prompt Engineering | Tool Use + MCP | Agent + Skills | Multi-Agent |
-| **Interaction** | Copy-paste into chat | AI calls external tools | AI executes workflows | Multi-agent collaboration |
-| **Capability** | Single Q&A | Cross-system connectivity | Encode team knowledge | End-to-end delivery |
-| **AI Role** | **Navigator** | **Tool operator** | **Intern** | **Colleague** |
-| **Flagship** | ChatGPT / Copilot | MCP Protocol | Agent Skills | Agent Orchestration |
-| **Developer** | Write prompts | Build MCP servers | Write SKILL.md | Design agent architecture |
+| **Era** | Prompt Engineering | MCP | Agent + Skills | Multi-Agent |
+| **AI Role** | Navigator | Tool Operator | Intern | Colleague |
+| **Key Action** | "Help me write" | "Help me connect" | "Help me do" | "Do it for me" |
 
 ```
- Prompt ──────▶ MCP ──────▶ Skills ──────▶ Agent
- "Help me write" "Help me connect" "Help me do"  "Do it for me"
+Prompt Engineering ───▶ MCP ───▶ Agent Skills ───▶ Multi-Agent
 ```
 
 > **The core of each step**: Shift more cognitive load to AI so developers focus on higher-level decisions
@@ -248,62 +257,93 @@ Agent Skills is an open standard **created and open-sourced by Anthropic** ([age
 
 ## What Does a SKILL.md Look Like?
 
-```yaml
----
-name: code-review
-description: "Review code for bugs, security, and style"
----
-
-# Code Review Skill
-
-## Steps
-1. Read the changed files
-2. Check for security vulnerabilities
-3. Verify error handling patterns
-4. Check code style consistency
-5. Provide actionable feedback
-
-## Output Format
-- 🔴 Critical  — Must fix before merge
-- 🟡 Warning   — Should fix
-- 🟢 Suggestion — Nice to have
-```
-
 > It's just Markdown — **if you can write docs, you can write Skills**
 
 ---
 
 <!-- _class: lead -->
 
-# 👤 Part 3
-### Value for Individuals
+# ⚡ Part 3
+### Skills vs MCP
 
 ---
 
-## For Individuals: Productivity Boost
-
-| Without Skills | With Skills |
-|---------------|------------|
-| Re-explain review rules every time | `/code-review` — one command |
-| Inconsistent commit messages | `/commit` — standardized format |
-| Pre-deploy checks from memory | `/deploy-checklist` — nothing missed |
-| Write a prompt, lose it, rewrite | **Write once, reuse forever** |
-
-**The essence**: Skills are **version-controlled, shareable, auto-triggerable Prompt Engineering**
+## Skills vs MCP: Cognitive vs Infrastructure
 
 ```
-Before: Manually type 200-word prompt every time → quality varies by mood
-After:  /code-review → best practices every single time
+┌─────────────────────────────┐
+│  Skills (Cognitive Layer)  │ ← "HOW to do it"
+├─────────────────────────────┤
+│  MCP (Infrastructure)      │ ← "WHAT to connect"
+├─────────────────────────────┤
+│  AI Model (Reasoning)      │ ← GPT / Claude / Gemini
+└─────────────────────────────┘
 ```
+
+**One Skill can orchestrate multiple MCP Servers**  
+**One MCP Server can support multiple Skills**
+
+> Source: [lucumr.pocoo.org — Skills vs MCP](https://lucumr.pocoo.org/2025/12/13/skills-vs-mcp/)
 
 ---
 
 <!-- _class: lead -->
 
-# 👥 Part 4
+# 💻 Part 4
+### Hands-On in VS Code
+
+---
+
+## Agent Skills: A Cross-Tool Open Standard
+
+**Where to store Skills** (pick one):
+
+| Path | Standard | Scope |
+|------|----------|-------|
+| `.github/skills/` | Open standard (recommended) | Project-level, committed to Git |
+
+
+**How to enable** (GitHub Copilot):
+1. VS Code Settings (`Cmd+,`)
+2. Search for `chat.useAgentSkills`
+
+> Source: [VS Code Agent Skills Docs](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+
+---
+
+## Three-Level Progressive Loading
+
+The agent doesn't load everything at once — it loads **on demand**:
+
+```
+Level 1 ─ Metadata (always visible)
+  name: "code-review"
+  description: "Team code review workflow..."
+         │
+         ▼  When request matches description
+Level 2 ─ Full SKILL.md instructions loaded
+         │
+         ▼  When instructions reference supporting files
+Level 3 ─ Scripts, examples, templates loaded on demand
+```
+
+> This is why Skills have **extremely low token cost** — unused content stays out of context
+>
+> Source: [agentskills.io/what-are-skills](https://agentskills.io/what-are-skills) — Discovery → Activation → Execution
+
+
+
+## Verify Your Skill Is Loaded
+---
+
+<!-- _class: lead -->
+
+# 👥 Part 6
 ### Value for Teams
 
 ---
+
+**The essence**: Skills are **version-controlled, shareable, auto-triggerable Prompt Engineering**
 
 ## Why Every Team Should Build Their Own Skills
 
@@ -326,16 +366,6 @@ Platform team writes `/api-design` → unified API style
 
 ## The Skills Adoption Path
 
-```
-Individual            Team                 Company
-~/.copilot/skills/ → .github/skills/  → org-wide repo
-                                            ↓
-Personal tools        Team knowledge      Company assets
-/my-snippets          /code-review        /security-audit
-/my-commit            /deploy-checklist   /compliance-check
-                      /incident-response  /api-design
-```
-
 | Level | Governance | Examples |
 |-------|-----------|----------|
 | **Personal** | Self-managed | Snippets, shortcuts |
@@ -343,11 +373,9 @@ Personal tools        Team knowledge      Company assets
 | **Company** | PR + approval | Security, compliance |
 
 > Skills can be **code reviewed, version controlled, and iterated** — just like code  
-> Community: [SkillsMP.com](https://skillsmp.com) — 90,000+ skills to browse
-
 ---
 
-## Build Your Company's Skills Library
+## Build Murex's Skills Library
 
 ```
 Identify → AI-Generate → Review → Publish → Iterate
@@ -367,10 +395,6 @@ Identify → AI-Generate → Review → Publish → Iterate
 **What**: Code review for accuracy & security  
 **Who**: Senior / Tech Lead  
 **Output**: Approved SKILL.md
-
----
-
-## Build Your Company's Skills Library (continued)
 
 ### Step 4: Publish
 **What**: Merge to `.github/skills/` or company repo  
@@ -424,135 +448,7 @@ AI:  → Generates complete SKILL.md (YAML metadata + steps + output format) →
 
 ---
 
-<!-- _class: lead -->
 
-# ⚡ Part 5
-### Skills vs MCP
-
----
-
-## Skills vs MCP: Cognitive vs Infrastructure
-
-```
-┌─────────────────────────────┐
-│  Skills (Cognitive Layer)  │ ← "HOW to do it"
-├─────────────────────────────┤
-│  MCP (Infrastructure)      │ ← "WHAT to connect"
-├─────────────────────────────┤
-│  AI Model (Reasoning)      │ ← GPT / Claude / Gemini
-└─────────────────────────────┘
-```
-
-**One Skill can orchestrate multiple MCP Servers**  
-**One MCP Server can support multiple Skills**
-
-> Source: [lucumr.pocoo.org — Skills vs MCP](https://lucumr.pocoo.org/2025/12/13/skills-vs-mcp/)
-
----
-
-## Side-by-Side Comparison
-
-| Dimension | Skills | MCP |
-|-----------|--------|-----|
-| **Nature** | Markdown instruction files | Open protocol + server process |
-| **Purpose** | Teach AI how to do things | Let AI connect to systems |
-| **Complexity** | Can write docs? You're set | Requires protocol & API knowledge |
-| **Token cost** | Very low (loaded on demand) | Higher (tool descriptions always in context) |
-| **Creation time** | 5 minutes | Hours to days |
-| **Maintainability** | Let AI maintain it for you | Requires developer maintenance |
-
-<br>
-
-> Simon Willison: *"Skills are awesome, maybe a bigger deal than MCP"* — [simonwillison.net, Oct 2025](https://simonwillison.net/2025/Oct/16/claude-skills/)
-
----
-
-<!-- _class: lead -->
-
-# 💻 Part 6
-### Hands-On in VS Code
-
----
-
-## Agent Skills: A Cross-Tool Open Standard
-
-**Where to store Skills** (pick one):
-
-| Path | Standard | Scope |
-|------|----------|-------|
-| `.github/skills/` | Open standard (recommended) | Project-level, committed to Git |
-| `~/.copilot/skills/` | Open standard | Personal |
-
-**How to enable** (GitHub Copilot):
-1. VS Code Settings (`Cmd+,`)
-2. Search for `chat.useAgentSkills`
-3. ✅ Check to enable (Preview feature, VS Code 1.108+)
-
-> Source: [VS Code Agent Skills Docs](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-
----
-
-## Create Your First Skill
-
-```bash
-mkdir -p .github/skills/code-review
-```
-
-Create `.github/skills/code-review/SKILL.md`:
-
-```yaml
----
-name: code-review
-description: "Team code review workflow — check security and quality"
----
-# Code Review
-
-## Steps
-1. Read changed files
-2. Check for security vulnerabilities (OWASP Top 10)
-3. Check TypeScript type safety
-4. Verify test coverage > 80%
-5. Output structured feedback (🔴 Critical / 🟡 Warning / 🟢 Suggestion)
-```
-
----
-
-## Three-Level Progressive Loading
-
-The agent doesn't load everything at once — it loads **on demand**:
-
-```
-Level 1 ─ Metadata (always visible)
-  name: "code-review"
-  description: "Team code review workflow..."
-         │
-         ▼  When request matches description
-Level 2 ─ Full SKILL.md instructions loaded
-         │
-         ▼  When instructions reference supporting files
-Level 3 ─ Scripts, examples, templates loaded on demand
-```
-
-> This is why Skills have **extremely low token cost** — unused content stays out of context
->
-> Source: [agentskills.io/what-are-skills](https://agentskills.io/what-are-skills) — Discovery → Activation → Execution
-
----
-
-## Verify Your Skill Is Loaded
-
-**Method 1**: Direct invocation → type `/code-review`
-
-**Method 2**: Indirect trigger → "Please review this PR"
-(Agent auto-matches based on description)
-
-**Method 3**: Check status → ask Copilot Chat "list my skills"
-
-**Format validation checklist**:
-- [ ] `SKILL.md` is in the correct path
-- [ ] YAML frontmatter starts and ends with `---`
-- [ ] `name` and `description` fields are present
-- [ ] Referenced scripts/example files actually exist
 
 ---
 
@@ -572,13 +468,13 @@ Skills and MCP give AI **read/write files, execute commands, access networks**
 ### Three Core Risks
 
 🎭 **Poisoning**: Malicious tools hide trap instructions  
-    AI can see them, you can't → AI executes malicious operations
+    AI can see them, you can't → AI executes malicious operations
 
 💉 **Injection**: Files/web pages contain hidden "fake instructions"  
-    AI can’t tell which instructions are yours vs attacker’s
+    AI can't tell which instructions are yours vs attacker's
 
 📤 **Exfiltration**: AI uses trusted channels to upload your data  
-    Bypasses firewalls (target domain is "allowlisted")
+    Bypasses firewalls (target domain is "allowlisted")
 
 **Defense**: Least privilege · Trusted tools only · Manual approval for sensitive ops
 
@@ -611,22 +507,17 @@ description: "Add two numbers together.
 
 ---
 
-<!-- _class: lead -->
-
 # 🎯 Summary
-
-**Prompt Engineering** → Teach AI to understand you
-**MCP** → Let AI connect to the world
-**Agent Skills** → Teach AI how to do things
-**Agent** → Let AI work autonomously
 
 <br>
 
 ### Agent Skills are the simplest path to turn team knowledge into AI capability
 
----
 
-<!-- _class: lead -->
+-- Current Mode
+Multi-Agent
+
+---
 
 # Q & A
 
