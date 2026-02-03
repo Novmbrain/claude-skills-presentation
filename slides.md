@@ -148,13 +148,6 @@ style: |
 
 ---
 
-<!-- _class: lead -->
-
-## Real-World Success Story
-### MXDEF-23179: Agent Skills in Production
-
----
-
 ## Agent-Powered Development Workflow
 
 > [View Case Study](https://mxjira.murex.com/browse/MXDEF-23179)
@@ -166,11 +159,10 @@ style: |
 1. [🕰️ The Evolution](#the-evolution-from-prompt-to-agent) — How we got here
 2. [🧩 What Are Agent Skills](#what-are-agent-skills) — An open standard by Anthropic
 3. [⚡ Skills vs MCP](#skills-vs-mcp-cognitive-vs-infrastructure) — How they complement each other
-4. [💻 Hands-On in VS Code](#agent-skills-a-cross-tool-open-standard) — Let's build one
-5. [👤 Value for Individuals](#for-individuals-productivity-boost) — Say goodbye to repetitive work
-6. [👥 Value for Teams](#why-every-team-should-build-their-own-skills) — Knowledge codification & standardization
-7. [⚠️ Security Risks](#security-with-great-power-comes-great-risk) — Plain English + real-world examples
-8. [🎯 Summary & Q&A](#-summary)
+4. [💻 Hands-On in VS Code]=-(#for-individuals-productivity-boost) — Say goodbye to repetitive work
+5. [👥 Value for Teams](#why-every-team-should-build-their-own-skills) — Knowledge codification & standardization
+6. [⚠️ Security Risks](#security-with-great-power-comes-great-risk) — Plain English + real-world examples
+
 
 ---
 

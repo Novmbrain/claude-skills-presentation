@@ -134,6 +134,7 @@ Full examples live in research docs, not slides.
 2. **Copying verbose examples from docs/** → overflow on 16:9 canvas
 3. **Missing source citations** → violates factual accuracy requirement
 4. **Breaking narrative flow** → slides are ordered pedagogically, not topically
+5. not generate UML  c
 
 ## Where Things Are
 
