@@ -7,27 +7,134 @@ style: |
     font-family: 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
     background: #ffffff;
     color: #2d3748;
+    padding: 60px 70px;
+    font-size: 24px;
+    line-height: 1.8;
   }
   section.lead {
     text-align: center;
     background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   section.lead h1 {
-    font-size: 2.2em;
+    font-size: 2.5em;
     color: #e53e3e;
+    margin-bottom: 0.3em;
+    font-weight: 700;
   }
-  h1 { color: #e53e3e; }
-  h2 { color: #ffffff; background: #e53e3e; padding: 4px 16px; border-radius: 4px; display: inline-block; font-size: 0.9em; }
-  strong { color: #e53e3e; }
-  code { background: #f7fafc; color: #2b6cb0; padding: 2px 6px; border-radius: 3px; border: 1px solid #e2e8f0; }
-  pre { background: #f7fafc !important; border-radius: 8px; border: 1px solid #e2e8f0; }
-  pre code { border: none; }
-  table { font-size: 0.75em; }
-  th { background: #e53e3e; color: white; }
-  td { background: #f7fafc; color: #2d3748; }
-  a { color: #2b6cb0; }
-  blockquote { border-left: 4px solid #e53e3e; padding-left: 16px; color: #718096; font-style: italic; font-size: 0.7em; margin-top: 8px; margin-bottom: 4px; }
-  img[alt~="center"] { display: block; margin: 0 auto; }
+  section.lead h3 {
+    color: #4a5568;
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+  h1 { 
+    color: #e53e3e;
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+  }
+  h2 { 
+    color: #ffffff;
+    background: #e53e3e;
+    padding: 6px 20px;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 1em;
+    margin-bottom: 1.2em;
+    font-weight: 600;
+  }
+  h3 {
+    color: #2d3748;
+    font-size: 1.1em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    font-weight: 600;
+  }
+  ul, ol {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+  li {
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+  }
+  strong { 
+    color: #e53e3e;
+    font-weight: 700;
+  }
+  code { 
+    background: #f7fafc;
+    color: #2b6cb0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9em;
+    font-family: 'Fira Code', 'Consolas', monospace;
+  }
+  pre { 
+    background: #f7fafc !important;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    margin: 1em 0;
+    font-size: 0.8em;
+    line-height: 1.5;
+  }
+  pre code { 
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+  table { 
+    font-size: 0.8em;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+  th { 
+    background: #e53e3e;
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+  td { 
+    background: #f7fafc;
+    color: #2d3748;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  a { 
+    color: #2b6cb0;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  a:hover {
+    border-bottom-color: #2b6cb0;
+  }
+  blockquote { 
+    border-left: 4px solid #e53e3e;
+    padding-left: 16px;
+    color: #718096;
+    font-style: italic;
+    font-size: 0.75em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+  }
+  img[alt~="center"] { 
+    display: block;
+    margin: 0 auto;
+  }
+  footer {
+    font-size: 14px;
+    color: #a0aec0;
+  }
 ---
 
 <!-- _class: lead -->
@@ -80,6 +187,12 @@ style: |
 > **The core of each step**: Shift more cognitive load to AI so developers focus on higher-level decisions
 >
 > Sources: [Anthropic MCP Blog](https://www.anthropic.com/news/model-context-protocol) · [agentskills.io](https://agentskills.io)
+
+---
+
+## Workflow
+
+![Agent orchestration workflow center](static/orchestration.png)
 
 ---
 
@@ -145,10 +258,10 @@ description: "Review code for bugs, security, and style"
 
 ## Steps
 1. Read the changed files
-2. Check for security vulnerabilities (OWASP Top 10)
+2. Check for security vulnerabilities
 3. Verify error handling patterns
 4. Check code style consistency
-5. Provide actionable feedback with code examples
+5. Provide actionable feedback
 
 ## Output Format
 - 🔴 Critical  — Must fix before merge
@@ -157,8 +270,6 @@ description: "Review code for bugs, security, and style"
 ```
 
 > It's just Markdown — **if you can write docs, you can write Skills**
->
-> Source: [agentskills.io/what-are-skills](https://agentskills.io/what-are-skills)
 
 ---
 
@@ -194,63 +305,84 @@ After:  /code-review → best practices every single time
 
 ---
 
-## For Teams: Why Every Team Should Build Their Own Skills
+## Why Every Team Should Build Their Own Skills
 
-**1. Standardize Best Practices**
+### 1. Standardize Best Practices
 Not everyone is a senior, but everyone can use a Skill written by one
 
-**2. Preserve Knowledge, Prevent Loss**
-Veterans' tribal knowledge becomes code in `.github/skills/`
+### 2. Preserve Knowledge, Prevent Loss
+Veterans' tribal knowledge becomes code in `.github/skills/`  
 Key person leaves ≠ knowledge lost
 
-**3. Accelerate Onboarding**
-Day 1: new hires already have `/code-review`, `/deploy-checklist`
-AI becomes a **pair programming buddy** that carries team conventions
+### 3. Accelerate Onboarding
+Day 1: new hires have `/code-review`, `/deploy-checklist`  
+AI becomes a **pair programming buddy** with team conventions
 
-**4. Cross-Team Reuse**
-Security team writes `/security-audit` → all product teams benefit
-Platform team writes `/api-design` → unified API style across the org
+### 4. Cross-Team Reuse
+Security team writes `/security-audit` → all teams benefit  
+Platform team writes `/api-design` → unified API style
 
 ---
 
 ## The Skills Adoption Path
 
 ```
-Individual Exploration       Team Standardization         Company Governance
-~/.copilot/skills/    →    .github/skills/         →    org-wide skills repo
-                                                         ↓
-Personal productivity       Team knowledge base          Company knowledge assets
-/my-snippets                /code-review                 /security-audit
-/my-commit                  /deploy-checklist            /compliance-check
-                            /incident-response           /api-design-standard
+Individual            Team                 Company
+~/.copilot/skills/ → .github/skills/  → org-wide repo
+                                            ↓
+Personal tools        Team knowledge      Company assets
+/my-snippets          /code-review        /security-audit
+/my-commit            /deploy-checklist   /compliance-check
+                      /incident-response  /api-design
 ```
 
-| Level | Location | Governance | Examples |
-|-------|----------|-----------|----------|
-| **Personal** | `~/.copilot/skills/` | Self-managed | Snippets, shortcuts |
-| **Team** | `.github/skills/` | Code review | Review standards, deploy process |
-| **Company** | Dedicated skills repo | PR + approval | Security audit, compliance |
+| Level | Governance | Examples |
+|-------|-----------|----------|
+| **Personal** | Self-managed | Snippets, shortcuts |
+| **Team** | Code review | Review standards, deploy |
+| **Company** | PR + approval | Security, compliance |
 
-> Skills can be **code reviewed, version controlled, and continuously iterated** — just like code
->
-> Community: [SkillsMP.com](https://skillsmp.com) — 90,000+ open-source skills to browse and install
+> Skills can be **code reviewed, version controlled, and iterated** — just like code  
+> Community: [SkillsMP.com](https://skillsmp.com) — 90,000+ skills to browse
 
 ---
 
-## Five Steps to Build Your Company's Skills Library
+## Build Your Company's Skills Library
 
 ```
-Step 1          Step 2            Step 3         Step 4          Step 5
-Identify    →   AI-Generate   →   Review     →   Publish     →   Measure & Iterate
+Identify → AI-Generate → Review → Publish → Iterate
 ```
 
-| Step | What | Who | Output |
-|------|------|-----|--------|
-| **1. Identify** | Inventory repetitive tasks (reviews, deploys, audits…) | Tech Lead + team | Task list |
-| **2. Generate** | Use **Skill Creator** to auto-generate SKILL.md | Anyone | SKILL.md draft |
-| **3. Review** | Review the Skill like code: accuracy, security, maintainability | Senior / Tech Lead | Approved SKILL.md |
-| **4. Publish** | Merge into `.github/skills/` or company skills repo | Via PR | Available to all |
-| **5. Iterate** | Optimize based on usage feedback, track adoption & satisfaction | Skill Owner | Version history |
+### Step 1: Identify
+**What**: Inventory repetitive tasks  
+**Who**: Tech Lead + team  
+**Output**: Task list
+
+### Step 2: AI-Generate  
+**What**: Use Skill Creator to auto-generate SKILL.md  
+**Who**: Anyone (lowest barrier!)  
+**Output**: SKILL.md draft
+
+### Step 3: Review
+**What**: Code review for accuracy & security  
+**Who**: Senior / Tech Lead  
+**Output**: Approved SKILL.md
+
+---
+
+## Build Your Company's Skills Library (continued)
+
+### Step 4: Publish
+**What**: Merge to `.github/skills/` or company repo  
+**Who**: Via PR  
+**Output**: Available to all teams
+
+### Step 5: Iterate
+**What**: Track adoption, satisfaction, onboarding time  
+**Who**: Skill Owner  
+**Output**: Continuous improvement
+
+<br>
 
 > **Key insight**: Step 2 has the lowest barrier — AI writes the Skill, you just review it
 
@@ -277,21 +409,18 @@ AI:  → Generates complete SKILL.md (YAML metadata + steps + output format) →
 
 ## Company Skills Governance Model
 
-| Dimension | Recommended Practice |
-|-----------|---------------------|
-| **Who writes** | Anyone can submit; Skill Creator lowers the barrier |
-| **Who reviews** | Tech Lead / Domain Expert, same flow as Code Review |
-| **Where stored** | Team: `.github/skills/` · Company: dedicated `company-skills` repo |
-| **Versioning** | Git + Semantic Versioning, changes require PR |
-| **Access control** | Read: everyone · Write: PR + Approval · Sensitive: CODEOWNERS |
-| **Metrics** | Usage frequency · satisfaction · accuracy · onboarding time reduction |
+| Dimension | Practice |
+|-----------|----------|
+| **Who writes** | Anyone can submit via Skill Creator |
+| **Who reviews** | Tech Lead / Domain Expert (code review flow) |
+| **Where stored** | Team: `.github/skills/` · Company: dedicated repo |
+| **Versioning** | Git + Semantic Versioning, changes via PR |
+| **Access** | Read: all · Write: PR+Approval · Sensitive: CODEOWNERS |
+| **Metrics** | Usage · satisfaction · onboarding time ↓ |
 
-```
-Hierarchy ─── Personal ~/.copilot/skills/ → Team .github/skills/ → Company skills repo
-                    (self-managed)             (Code Review)          (PR + CODEOWNERS)
-```
+<br>
 
-> **Best practice**: Quarterly Skills Review — retire outdated, merge duplicates, upgrade high-frequency ones
+> **Best practice**: Quarterly Skills Review — retire outdated, merge duplicates, upgrade popular ones
 
 ---
 
@@ -302,22 +431,19 @@ Hierarchy ─── Personal ~/.copilot/skills/ → Team .github/skills/ → Com
 
 ---
 
-## Skills vs MCP: Cognitive Layer vs Infrastructure Layer
+## Skills vs MCP: Cognitive vs Infrastructure
 
 ```
-┌─────────────────────────────────────────┐
-│  Skills (Cognitive Layer)               │
-│  "HOW to do it" — workflows, standards  │
-├─────────────────────────────────────────┤
-│  MCP Servers (Infrastructure Layer)     │
-│  "WHAT to connect" — DB, API, FS       │
-├─────────────────────────────────────────┤
-│  AI Model (Reasoning Engine)            │
-│  GPT / Claude / Gemini                  │
-└─────────────────────────────────────────┘
+┌─────────────────────────────┐
+│  Skills (Cognitive Layer)  │ ← "HOW to do it"
+├─────────────────────────────┤
+│  MCP (Infrastructure)      │ ← "WHAT to connect"
+├─────────────────────────────┤
+│  AI Model (Reasoning)      │ ← GPT / Claude / Gemini
+└─────────────────────────────┘
 ```
 
-**One Skill can orchestrate multiple MCP Servers**
+**One Skill can orchestrate multiple MCP Servers**  
 **One MCP Server can support multiple Skills**
 
 > Source: [lucumr.pocoo.org — Skills vs MCP](https://lucumr.pocoo.org/2025/12/13/skills-vs-mcp/)
@@ -437,22 +563,24 @@ Level 3 ─ Scripts, examples, templates loaded on demand
 
 ---
 
-## ⚠️ Security: With Great Power Comes Great Risk
+## Security: With Great Power Comes Great Risk
 
-Skills and MCP give AI the ability to **read/write files, execute commands, access networks** — which means:
+Skills and MCP give AI **read/write files, execute commands, access networks**
 
-> If the AI gets "tricked," it will use the permissions YOU gave it to do harmful things
+> If AI gets "tricked," it uses YOUR permissions to do harmful things
 
-**Three core risks (in plain English):**
+### Three Core Risks
 
-- 🎭 **Poisoning**: Malicious tools pretend to be "normal" but hide trap instructions
-  AI can see them, you can't → AI obediently executes malicious operations
-- 💉 **Injection**: Files or web pages contain hidden "fake instructions"
-  AI can't tell which instructions are yours and which are the attacker's
-- 📤 **Exfiltration**: AI uses trusted channels to secretly upload your data
-  Bypasses firewalls because the target domain is on the "allowlist"
+🎭 **Poisoning**: Malicious tools hide trap instructions  
+    AI can see them, you can't → AI executes malicious operations
 
-**Defense**: Least privilege · Use only trusted tools · Manual approval for sensitive ops
+💉 **Injection**: Files/web pages contain hidden "fake instructions"  
+    AI can’t tell which instructions are yours vs attacker’s
+
+📤 **Exfiltration**: AI uses trusted channels to upload your data  
+    Bypasses firewalls (target domain is "allowlisted")
+
+**Defense**: Least privilege · Trusted tools only · Manual approval for sensitive ops
 
 ---
 
