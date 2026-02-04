@@ -264,7 +264,7 @@ Agent Skills is an open standard **created and open-sourced by Anthropic** ([age
 
 <!-- _class: lead -->
 
-# 💻 Part 4
+# 💻 Part 3
 ### Hands-On in VS Code
 
 ---
@@ -329,7 +329,7 @@ Level 3 ─ Scripts, examples, templates loaded on demand
 
 <!-- _class: lead -->
 
-# 👥 Part 6
+# 👥 Part 4
 ### Value for Teams
 
 ---
@@ -395,7 +395,7 @@ AI:  → Generates complete SKILL.md (YAML metadata + steps + output format) →
 
 <!-- _class: lead -->
 
-# ⚡ Part 3
+# ⚡ Part 5
 ### Skills vs MCP and Prompt
 ---
 
@@ -431,7 +431,7 @@ AI:  → Generates complete SKILL.md (YAML metadata + steps + output format) →
 ---
 <!-- _class: lead -->
 
-# ⚠️ Part 7
+# ⚠️ Part 6
 ### Security Risks
 
 ---

@@ -36,11 +36,11 @@ First, **The Evolution**. How did we get here? What changed from 2023 to now?
 
 Second, **What Are Agent Skills**. This is a new open standard. It makes AI tools much more useful.
 
-Third, **Skills vs MCP**. These are two different things. I'll explain how they work together.
+Third, **Hands-On in VS Code**. We'll do a live demo. You can try it yourself later.
 
-Fourth, **Hands-On in VS Code**. We'll do a live demo. You can try it yourself later.
+Fourth, **Value for Teams**. This is important for companies. Skills can help your whole team.
 
-Fifth, **Value for Teams**. This is important for companies. Skills can help your whole team.
+Fifth, **Skills vs MCP and Prompt**. These are two different things. I'll explain how they work together.
 
 Finally, **Security Risks**. AI tools are powerful. But power comes with risk. We need to be careful.
 
@@ -170,80 +170,13 @@ You can include commands to run. Like `npm test` or a shell script. The AI execu
 
 ---
 
-## Slide 11: Skills vs Traditional Prompts
-
-Let me explain a key idea. **A Skill is an enhanced prompt.**
-
-What do I mean by that?
-
-You all know prompts. You type a question. AI gives an answer. That's Prompt Engineering.
-
-But prompts have problems. They disappear after the chat ends. You can't share them easily. You can't track changes.
-
-**A Skill is a prompt with superpowers.**
-
-Same idea. You still write instructions for AI. But now:
-
-- It lives in Git. Not in chat history.
-- AI finds it automatically. No copy-paste.
-- Your team can share it. Just merge a PR.
-- You see who changed what. Full version history.
-
-Look at the table. Every row shows an upgrade. From "manual" to "automatic." From "lost" to "saved."
-
-**The mental model**:
-
-Prompt = one-time conversation. You type, AI responds, done.
-
-Skill = saved documentation. AI reads it every time. Consistent results.
-
-Think of it like this. A prompt is a sticky note. A Skill is a wiki page.
-
----
-
-## Slide 12: Part 3 Title — Skills vs MCP
-
-Now a common question. What's the difference between Skills and MCP?
-
----
-
-## Slide 13: Skills vs MCP Diagram
-
-Let me explain with a simple picture.
-
-Think of three layers.
-
-**Bottom layer: AI Model**
-
-This is GPT, Claude, or Gemini. It does the thinking.
-
-**Middle layer: MCP (Infrastructure)**
-
-This tells AI **what tools to use**. Read this file. Call this API. Run this command.
-
-MCP is like a toolbox. It has hammers, screwdrivers, wrenches.
-
-**Top layer: Skills (Cognitive)**
-
-This tells AI **how to use the tools**. In what order. With what rules.
-
-Skills is like an instruction manual. It says: "First, use the hammer here. Then, use the screwdriver there."
-
-**Here's the key insight:**
-
-One Skill can use many MCP tools. One MCP tool can support many Skills.
-
-They work together. Skills without MCP has no tools. MCP without Skills has no guidance.
-
----
-
-## Slide 14: Part 4 Title — Hands-On in VS Code
+## Slide 11: Part 3 Title — Hands-On in VS Code
 
 Enough theory. Let's do something real.
 
 ---
 
-## Slide 15: Enable Agent Skills
+## Slide 12: Enable Agent Skills
 
 Agent Skills work in many tools. Today we use VS Code with GitHub Copilot.
 
@@ -267,7 +200,7 @@ How do you know the Skill is working?
 
 ---
 
-## Slide 16: Three-Level Progressive Loading
+## Slide 13: Three-Level Progressive Loading
 
 This is a smart design. The AI doesn't load everything at once.
 
@@ -289,13 +222,13 @@ Think of it like lazy loading in web apps. Same idea.
 
 ---
 
-## Slide 18: Part 5 Title — Value for Teams
+## Slide 14: Part 4 Title — Value for Teams
 
 Skills are not just for individuals. They shine in teams.
 
 ---
 
-## Slide 19: Why Teams Should Build Skills
+## Slide 15: Why Teams Should Build Skills
 
 Let me give you four reasons.
 
@@ -331,7 +264,7 @@ Skills become shared company assets.
 
 ---
 
-## Slide 20: Skills Adoption Levels
+## Slide 16: Skills Adoption Levels
 
 Different Skills need different governance.
 
@@ -351,7 +284,7 @@ The point is: Skills are just code. You review them like code. You version them 
 
 ---
 
-## Slide 21: Build Your Skills Library
+## Slide 17: Build Your Skills Library
 
 Look at this table. Five steps to build your Skills library.
 
@@ -369,7 +302,7 @@ The key insight? Step 2 has the lowest barrier. AI does the writing. You just re
 
 ---
 
-## Slide 22: Skill Creator Tool
+## Slide 18: Skill Creator Tool
 
 Let me show you the Skill Creator.
 
@@ -385,7 +318,7 @@ This lowers the barrier a lot. You don't need to write Skills from scratch.
 
 ---
 
-## Slide 23: Governance Model
+## Slide 19: Governance Model
 
 For larger teams, here's a governance model.
 
@@ -405,13 +338,69 @@ One tip: Do a quarterly Skills review. Remove outdated ones. Merge duplicates. U
 
 ---
 
-## Slide 24: Part 6 Title — Security Risks
+## Slide 20: Part 5 Title — Skills vs MCP and Prompt
+
+Now let's compare Skills with two related concepts.
+
+---
+
+## Slide 21: Skills vs Traditional Prompts
+
+First, Skills vs Prompts.
+
+You all know prompts. You type a question. AI gives an answer. That's Prompt Engineering.
+
+But prompts have problems. They disappear after the chat ends. You can't share them easily.
+
+**A Skill is an enhanced prompt.**
+
+Same idea. You still write instructions for AI. But now:
+
+- It lives in Git. Not in chat history.
+- AI finds it automatically. No copy-paste.
+- Your team can share it. Just merge a PR.
+
+Think of it like this. A prompt is a sticky note. A Skill is a wiki page.
+
+---
+
+## Slide 22: Skills vs MCP Diagram
+
+Now, Skills vs MCP.
+
+Think of three layers.
+
+**Bottom layer: AI Model**
+
+This is GPT, Claude, or Gemini. It does the thinking.
+
+**Middle layer: MCP (Infrastructure)**
+
+This tells AI **what tools to use**. Read this file. Call this API. Run this command.
+
+MCP is like a toolbox. It has hammers, screwdrivers, wrenches.
+
+**Top layer: Skills (Cognitive)**
+
+This tells AI **how to use the tools**. In what order. With what rules.
+
+Skills is like an instruction manual. It says: "First, use the hammer here. Then, use the screwdriver there."
+
+**Here's the key insight:**
+
+One Skill can use many MCP tools. One MCP tool can support many Skills.
+
+They work together. Skills without MCP has no tools. MCP without Skills has no guidance.
+
+---
+
+## Slide 23: Part 6 Title — Security Risks
 
 Now the serious part. Let's talk about security.
 
 ---
 
-## Slide 25: Three Core Risks
+## Slide 24: Three Core Risks
 
 Skills and MCP give AI real power. It can read files. Write code. Run commands. Access networks.
 
@@ -433,7 +422,7 @@ The AI sends your data to an attacker. Using trusted channels. The firewall does
 
 ---
 
-## Slide 26: Tool Poisoning Example
+## Slide 25: Tool Poisoning Example
 
 Let me show you a real attack.
 
@@ -468,7 +457,7 @@ The AI computes the answer. But first, it reads your SSH key. And sends it to th
 
 ---
 
-## Slide 27: Summary
+## Slide 26: Summary
 
 Let me wrap up with key points.
 
@@ -484,7 +473,7 @@ And remember security. Power comes with risk. Be careful what tools you trust.
 
 ---
 
-## Slide 28: Q & A
+## Slide 27: Q & A
 
 That's all for today.
 
@@ -502,9 +491,9 @@ What would you like to know?
 - Opening + Agenda: 3 min
 - Part 1 Evolution: 5 min
 - Part 2 What Are Skills: 4 min
-- Part 3 Skills vs MCP: 3 min
-- Part 4 VS Code Demo: 6 min
-- Part 5 Team Value: 8 min
+- Part 3 VS Code Demo: 6 min
+- Part 4 Team Value: 8 min
+- Part 5 Skills vs MCP: 3 min
 - Part 6 Security: 5 min
 - Summary + Q&A: 6 min
 

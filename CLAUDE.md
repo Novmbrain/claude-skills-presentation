@@ -25,14 +25,13 @@
 ## 演讲结构
 PPT 按听众理解顺序组织，开头有可点击跳转的大纲页：
 
-1. **演进全景** — 背景铺垫，一页表格概览 Prompt → MCP → Skills → Agent
-2. **什么是 Agent Skills** — 定义、由 Anthropic 开源、开放标准
-3. **Skills 对个人的价值** — 个人效率提升，知识复用，减少重复劳动
-4. **Skills 对团队/公司的价值** — 标准化最佳实践、知识沉淀、新人 onboarding、跨团队复用
-5. **Skills vs MCP** — 认知层 vs 基础设施层，互补关系
-6. **VS Code 实战** — 启用、创建、加载机制、验证
-7. **安全风险** — 通俗讲解 + 例子
-8. **总结 & Q&A**
+1. **Part 1: The Evolution** — 背景铺垫，表格概览 Prompt → MCP → Skills → Multi-Agent
+2. **Part 2: What Are Agent Skills** — 定义、开放标准、SKILL.md 结构
+3. **Part 3: Hands-On in VS Code** — 启用方式、Skills 市场、三级加载机制
+4. **Part 4: Value for Teams** — 团队价值、治理模型、Skill Creator
+5. **Part 5: Skills vs MCP and Prompt** — Skill vs Prompt 对比、认知层 vs 基础设施层
+6. **Part 6: Security Risks** — 三种风险、Tool Poisoning 例子
+7. **Summary & Q&A**
 
 ## 引用规范
 - PPT 中每个事实性声明（factual claim）都应在幻灯片底部以 blockquote 格式附上来源引用
